@@ -1,5 +1,9 @@
 from . import Expense
-class BudgetList():
+
+
+class BudgetList:
+
+
     def __init__(self, budget):
         self.budget = budget
         self.sum_expenses = 0
@@ -11,11 +15,11 @@ class BudgetList():
 
         if self.sum_expenses + item < self.budget:
             self.expenses.append(item)
-            self.sum_expenses += item
+            item += self.sum_expenses
 
         else:
             self.overages.append(item)
-            self.sum_expenses += item
+            item += self.sum_expenses
 
     def __len__(self):
         len(self.sum_expenses) + len(self.overages)
@@ -28,3 +32,4 @@ def main():
 
     for expense in expenses.list:
         myBudgetList.append(expense.amount)
+    print(f'The count of all expenses: {str(len(myBudgetList))}')
